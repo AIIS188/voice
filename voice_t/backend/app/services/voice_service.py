@@ -6,6 +6,7 @@ import numpy as np
 import soundfile as sf
 from datetime import datetime
 from typing import List, Optional, Dict, Any
+from app.services.voice_clone import voice_cloner
 from app.models.voice import VoiceSampleCreate, VoiceSampleDB, VoiceSampleResponse
 from app.core.config import settings
 from app.utils.audio import get_audio_duration, normalize_audio, trim_audio
@@ -150,7 +151,8 @@ async def process_voice_sample(sample: VoiceSampleCreate):
     try:
         # 模拟处理音频文件
         print(f"处理音频文件: {sample.file_path}")
-        
+        # 在现有特征提取后，添加声音克隆特征提取
+        voice_cloner.process_voice_sample(sample.file_path, sample.id)
         # 1. 加载音频
         try:
             y, sr = librosa.load(sample.file_path, sr=22050)

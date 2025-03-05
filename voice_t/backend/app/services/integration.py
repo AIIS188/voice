@@ -3,6 +3,9 @@ import json
 import asyncio
 from datetime import datetime
 from typing import Dict, List, Optional
+from app.services.tts_service import tts_model, init_tts_service
+from app.services.voice_clone import voice_cloner
+import app.utils.tts_metrics as tts_metrics
 from fastapi import FastAPI, BackgroundTasks, HTTPException, Depends, UploadFile
 from app.services.voice_service import (
     get_voice_samples, 
@@ -277,7 +280,7 @@ async def startup_event():
 # Register startup event
 def register_startup(app: FastAPI):
     app.add_event_handler("startup", startup_event)
-
+    app.add_event_handler("startup", init_tts_service)
 # Get the metrics
 async def get_app_metrics():
     return await metrics_service.get_metrics()

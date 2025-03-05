@@ -4,6 +4,14 @@ from app.core.config import settings
 from app.api.router import api_router
 from app.services.integration import register_startup, get_app_metrics
 from app.models.metrics import AppMetrics
+from prometheus_client import Counter, Histogram, start_http_server
+
+
+# 监控指标
+TTS_REQUESTS = Counter('tts_requests_total', 'Total number of TTS requests')
+TTS_ERRORS = Counter('tts_errors_total', 'Total number of TTS errors')
+TTS_PROCESSING_TIME = Histogram('tts_processing_seconds', 'Time spent processing TTS requests')
+
 
 def create_app() -> FastAPI:
     """Create and configure the FastAPI application"""
@@ -67,3 +75,8 @@ def create_app() -> FastAPI:
     register_startup(app)
     
     return app
+
+# 启动监控服务器
+def start_metrics_server(port=8000):
+    start_http_server(port)
+    print(f"Metrics server started on port {port}")
