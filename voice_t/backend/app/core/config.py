@@ -3,6 +3,18 @@ from typing import List
 from pydantic import BaseSettings
 
 class Settings(BaseSettings):
+    # TTS模型配置
+    TTS_MODELS_DIR: str = os.path.join(MODELS_DIR, "tts")
+    TTS_VOICE_ENCODER_PATH: str = os.path.join(MODELS_DIR, "voice_encoder/encoder.pt")
+    TTS_METRICS_MODEL_PATH: str = os.path.join(MODELS_DIR, "metrics/mosnet.pt")
+    TTS_DEFAULT_PARAMS: Dict[str, Any] = {
+        "speed": 1.0,
+        "pitch": 0.0,
+        "energy": 1.0,
+        "emotion": "neutral",
+        "pause_factor": 1.0,
+        "language": "zh-CN"
+    }
     # API配置
     API_V1_STR: str = "/v1"
     PROJECT_NAME: str = "声教助手"

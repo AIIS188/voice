@@ -1,0 +1,6 @@
+# TTS模型额外依赖
+torchaudio>=2.0.0
+pypinyin>=0.48.0
+tqdm>=4.65.0
+g2p-en>=2.1.0  # 英文GraphemeToPhoneme转换
+pyopenjtalk>=0.3.0  # 日语时可选
