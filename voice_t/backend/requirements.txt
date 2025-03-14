@@ -3,7 +3,6 @@ uvicorn==0.27.1
 sqlalchemy==2.0.27
 alembic==1.13.1
 pydantic==2.6.1
-pydantic-settings==2.1.0
 python-multipart==0.0.9
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
@@ -17,4 +16,18 @@ soundfile==0.12.1
 librosa==0.10.1
 pytest==8.0.0
 httpx==0.26.0
-prometheus-client==0.19.0
+
+# PaddleSpeech and dependencies
+paddlepaddle==2.5.2
+paddlespeech==1.5.0
+parakeet==0.4.0
+ppgan==2.0.0
+ppdiffusers==0.16.1
+paddlenlp==2.6.0
+jieba==0.42.1
+yacs==0.1.8
+pyyaml>=6.0.1
+visualdl==2.5.3
+
+# Streaming support
+websockets==11.0.3

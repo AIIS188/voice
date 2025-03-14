@@ -24,7 +24,7 @@ MODEL_URLS = {
         # 替代的中文FastSpeech2模型URL
         "zh": "https://huggingface.co/espnet/kan-bayashi_csmsc_tts_train_fastspeech2_raw_phn_pypinyin_g2p_phone_train.loss.ave/resolve/main/model.pth",
         # 替代的英文FastSpeech2模型URL
-        "en": "https://huggingface.co/espnet/kan-bayashi_ljspeech_tts_train_fastspeech2_raw_phn_tacotron_g2p_en_no_space_train.loss.ave/resolve/main/model.pth"
+        "en": "https://huggingface.co/espnet/kan-bayashi_ljspeech_tts_train_fastspeech2_raw_phn_tacotron_g2p_en_no_space_train.loss.ave/resolve/main/exp/tts_train_fastspeech2_raw_phn_tacotron_g2p_en_no_space/train.loss.ave_5best.pth"
     },
     "hifigan": {
         # 替代的中文HiFi-GAN模型URL
