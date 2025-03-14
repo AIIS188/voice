@@ -15,6 +15,9 @@ from app.services.voice_clone import voice_cloner
 from app.models.tts import TTSTaskDB, TTSTaskStatus, TTSParams
 from app.services.voice_service import get_voice_samples
 from app.core.config import settings
+from app.utils.tts_metrics import create_evaluator
+
+
 
 # 检查中文文本处理库
 try:
@@ -327,6 +330,7 @@ class TTSModel:
 TTS_TASKS_DB = []
 TTS_TASKS_FILE = os.path.join(settings.UPLOAD_DIR, "tts_tasks.json")
 tts_model = None
+tts_evaluator = None  # Add this line
 
 # 下载模型文件（如果需要）
 async def download_models():
@@ -353,17 +357,17 @@ async def download_models():
     
     print("模型目录检查完成")
 
-# 初始化TTS服务和模型
+# Update in init_tts_service function
 async def init_tts_service():
-    global TTS_TASKS_DB, tts_model
+    global TTS_TASKS_DB, tts_model, tts_evaluator  # Add tts_evaluator here
     
-    # 确保目录存在
+    # Ensure directories exist
     os.makedirs(os.path.join(settings.UPLOAD_DIR, "tts_results"), exist_ok=True)
     
-    # 检查并下载模型（如需要）
+    # Check and download models (if needed)
     await download_models()
     
-    # 加载现有任务
+    # Load existing tasks
     if os.path.exists(TTS_TASKS_FILE):
         try:
             with open(TTS_TASKS_FILE, 'r') as f:
@@ -372,10 +376,13 @@ async def init_tts_service():
         except Exception as e:
             print(f"初始化TTS服务失败: {e}")
     
-    # 初始化TTS模型
+    # Initialize TTS model
     model_dir = os.path.join(settings.MODELS_DIR, "tts")
     tts_model = TTSModel(model_dir)
-
+    
+    # Initialize TTS evaluator
+    tts_evaluator = create_evaluator(settings.TTS_METRICS_MODEL_PATH)
+    print("TTS 评估器初始化完成")
 # 保存任务到文件
 async def save_tts_tasks():
     with open(TTS_TASKS_FILE, 'w') as f:

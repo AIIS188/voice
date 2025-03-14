@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/aiis/ai_app/voice/voice_t/backend/run.py", line 3, in <module>
+    from app.core.config import settings
+  File "/home/aiis/ai_app/voice/voice_t/backend/app/core/config.py", line 4, in <module>
+    from pydantic_settings import BaseSettings, SettingsConfigDict
+  File "/home/aiis/ai_app/voice/voice_t/backend/venv/lib/python3.10/site-packages/pydantic_settings/__init__.py", line 1, in <module>
+    from .main import BaseSettings, CliApp, SettingsConfigDict
+  File "/home/aiis/ai_app/voice/voice_t/backend/venv/lib/python3.10/site-packages/pydantic_settings/main.py", line 17, in <module>
+    from .sources import (
+  File "/home/aiis/ai_app/voice/voice_t/backend/venv/lib/python3.10/site-packages/pydantic_settings/sources.py", line 40, in <module>
+    from pydantic import AliasChoices, AliasPath, BaseModel, Json, RootModel, Secret, TypeAdapter
+ImportError: cannot import name 'Secret' from 'pydantic' (/home/aiis/ai_app/voice/voice_t/backend/venv/lib/python3.10/site-packages/pydantic/__init__.py)

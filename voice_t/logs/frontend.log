@@ -1,0 +1,95 @@
+
+> voice-teaching-assistant@0.1.0 dev
+> vite
+
+19:12:53 [vite] (client) Re-optimizing dependencies because lockfile has changed
+
+  VITE v6.2.0  ready in 109 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: use --host to expose
+Error: The following dependencies are imported but could not be resolved:
+
+  react-redux (imported by /home/aiis/ai_app/voice/voice_t/frontend/src/pages/text-to-speech/TextToSpeech.jsx)
+
+Are they installed?
+    at file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:18897:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:52215:28
+19:12:56 [vite] (client) Pre-transform error: Failed to resolve import "../../store/actions/ttsActions" from "src/pages/text-to-speech/TextToSpeech.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/aiis/ai_app/voice/voice_t/frontend/src/pages/text-to-speech/TextToSpeech.jsx:17:7
+  42 |    getSynthesisStatus,
+  43 |    clearSynthesisResult
+  44 |  } from "../../store/actions/ttsActions";
+     |          ^
+  45 |  const { Title, Paragraph, Text } = Typography;
+  46 |  const { TextArea } = Input;
+19:12:56 [vite] Internal server error: Failed to resolve import "../../store/actions/ttsActions" from "src/pages/text-to-speech/TextToSpeech.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/aiis/ai_app/voice/voice_t/frontend/src/pages/text-to-speech/TextToSpeech.jsx:17:7
+  42 |    getSynthesisStatus,
+  43 |    clearSynthesisResult
+  44 |  } from "../../store/actions/ttsActions";
+     |          ^
+  45 |  const { Title, Paragraph, Text } = Typography;
+  46 |  const { TextArea } = Input;
+      at TransformPluginContext._formatLog (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:47835:41)
+      at TransformPluginContext.error (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:47832:16)
+      at normalizeUrl (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:45968:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:46087:37
+      at async Promise.all (index 9)
+      at async TransformPluginContext.transform (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:46014:7)
+      at async EnvironmentPluginContainer.transform (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:47630:18)
+      at async loadAndTransform (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:41318:27)
+      at async viteTransformMiddleware (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:42781:24)
+19:12:57 [vite] (client) ✨ new dependencies optimized: react-dom/client, react-router-dom, antd, @ant-design/icons, axios
+19:12:57 [vite] (client) ✨ optimized dependencies changed. reloading
+19:12:57 [vite] (client) Pre-transform error: Failed to resolve import "../../store/actions/ttsActions" from "src/pages/text-to-speech/TextToSpeech.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/aiis/ai_app/voice/voice_t/frontend/src/pages/text-to-speech/TextToSpeech.jsx:17:7
+  42 |    getSynthesisStatus,
+  43 |    clearSynthesisResult
+  44 |  } from "../../store/actions/ttsActions";
+     |          ^
+  45 |  const { Title, Paragraph, Text } = Typography;
+  46 |  const { TextArea } = Input;
+19:12:57 [vite] Internal server error: Failed to resolve import "../../store/actions/ttsActions" from "src/pages/text-to-speech/TextToSpeech.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/aiis/ai_app/voice/voice_t/frontend/src/pages/text-to-speech/TextToSpeech.jsx:17:7
+  42 |    getSynthesisStatus,
+  43 |    clearSynthesisResult
+  44 |  } from "../../store/actions/ttsActions";
+     |          ^
+  45 |  const { Title, Paragraph, Text } = Typography;
+  46 |  const { TextArea } = Input;
+      at TransformPluginContext._formatLog (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:47835:41)
+      at TransformPluginContext.error (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:47832:16)
+      at normalizeUrl (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:45968:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:46087:37
+      at async Promise.all (index 9)
+      at async TransformPluginContext.transform (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:46014:7)
+      at async EnvironmentPluginContainer.transform (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:47630:18)
+      at async loadAndTransform (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:41318:27)
+      at async viteTransformMiddleware (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:42781:24)
+19:13:12 [vite] Internal server error: Failed to resolve import "../../store/actions/ttsActions" from "src/pages/text-to-speech/TextToSpeech.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/aiis/ai_app/voice/voice_t/frontend/src/pages/text-to-speech/TextToSpeech.jsx:17:7
+  42 |    getSynthesisStatus,
+  43 |    clearSynthesisResult
+  44 |  } from "../../store/actions/ttsActions";
+     |          ^
+  45 |  const { Title, Paragraph, Text } = Typography;
+  46 |  const { TextArea } = Input;
+      at TransformPluginContext._formatLog (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:47835:41)
+      at TransformPluginContext.error (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:47832:16)
+      at normalizeUrl (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:45968:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:46087:37
+      at async Promise.all (index 9)
+      at async TransformPluginContext.transform (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:46014:7)
+      at async EnvironmentPluginContainer.transform (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:47630:18)
+      at async loadAndTransform (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:41318:27)
+      at async viteTransformMiddleware (file:///home/aiis/ai_app/voice/voice_t/frontend/node_modules/vite/dist/node/chunks/dep-ByPKlqZ5.js:42781:24)

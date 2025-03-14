@@ -17,13 +17,32 @@ if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "win32" ]]; then
         python -m venv venv
     fi
     source venv/Scripts/activate
+    echo "安装基础依赖..."
     pip install -r requirements.txt
+    # 确保pydantic-settings已安装
+    pip install pydantic-settings
+    echo "安装TTS依赖..."
+    if [ -f "requirements-tts.txt" ]; then
+        pip install -r requirements-tts.txt
+    fi
+    
+    echo "准备TTS模型目录..."
+    # 创建必要的模型目录
+    mkdir -p models/weights/tts
+    mkdir -p models/weights/voice_encoder
+    mkdir -p models/weights/metrics
+    mkdir -p uploads/tts_results
+    mkdir -p uploads/voice_embeddings
+    
+    # 启动服务
     start python run.py
     cd ..
     
     # 启动前端服务
     echo "启动前端服务..."
     cd frontend
+    # Downgrade vite for node 16 compatibility
+    npm install vite@4.5.0 --save-dev
     npm install
     start npm run dev
     
@@ -39,7 +58,23 @@ else
         python3 -m venv venv
     fi
     source venv/bin/activate
+    echo "安装基础依赖..."
     pip install -r requirements.txt
+    # 确保pydantic-settings已安装
+    pip install pydantic-settings
+    echo "安装TTS依赖..."
+    if [ -f "requirements-tts.txt" ]; then
+        pip install -r requirements-tts.txt
+    fi
+    
+    echo "准备TTS模型目录..."
+    # 创建必要的模型目录
+    mkdir -p models/weights/tts
+    mkdir -p models/weights/voice_encoder
+    mkdir -p models/weights/metrics
+    mkdir -p uploads/tts_results
+    mkdir -p uploads/voice_embeddings
+    
     python run.py &
     BACKEND_PID=$!
     cd ..
@@ -47,6 +82,8 @@ else
     # 启动前端服务
     echo "启动前端服务..."
     cd frontend
+    # Downgrade vite for node 16 compatibility
+    npm install vite@4.5.0 --save-dev
     npm install
     npm run dev &
     FRONTEND_PID=$!

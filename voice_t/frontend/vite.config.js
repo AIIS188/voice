@@ -19,4 +19,10 @@ export default defineConfig({
       },
     },
   },
+  // Disable ESM externals transform for Node.js v16 compatibility
+  build: {
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
+  },
 });
