@@ -1,7 +1,6 @@
 import os
 from typing import List, Dict, Any
-from pydantic import Field
-from pydantic_settings import BaseSettings
+from pydantic import BaseSettings, Field
 
 class Settings(BaseSettings):
     # API配置
@@ -42,7 +41,8 @@ class Settings(BaseSettings):
     # 算法配置
     ALGORITHM: str = "HS256"
     
-    model_config = {"env_file": ".env"}
+    class Config:
+        env_file = ".env"
 
     def __init__(self, **data):
         super().__init__(**data)

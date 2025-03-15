@@ -1,33 +1,30 @@
-fastapi==0.109.2
-uvicorn==0.27.1
-sqlalchemy==2.0.27
-alembic==1.13.1
-pydantic==2.6.1
-python-multipart==0.0.9
-python-jose[cryptography]==3.3.0
-passlib[bcrypt]==1.7.4
-python-dotenv==1.0.1
-numpy==1.26.4
-pandas==2.2.0
-scikit-learn==1.4.0
-torch==2.2.0
-transformers==4.37.2
-soundfile==0.12.1
-librosa==0.10.1
-pytest==8.0.0
-httpx==0.26.0
+# 核心 Web 框架和工具
+fastapi>=0.95.0,<0.96.0
+uvicorn>=0.22.0,<0.23.0
+python-multipart>=0.0.5,<0.1.0
+aiofiles>=0.7.0,<0.8.0
 
-# PaddleSpeech and dependencies
-paddlepaddle==2.5.2
-paddlespeech==1.5.0
-parakeet==0.4.0
-ppgan==2.0.0
-ppdiffusers==0.16.1
-paddlenlp==2.6.0
-jieba==0.42.1
-yacs==0.1.8
-pyyaml>=6.0.1
-visualdl==2.5.3
+# 数据处理和科学计算
+numpy>=1.20.0,<1.25.0
+scipy>=1.7.0,<1.11.0
+matplotlib>=3.4.3,<3.8.0
+pillow>=8.3.2,<10.0.0
 
-# Streaming support
-websockets==11.0.3
+# 数据库和ORM
+sqlalchemy>=1.4.0,<2.0.0
+
+# 音频处理
+librosa>=0.9.0,<0.11.0
+soundfile>=0.10.3,<0.13.0
+
+# PaddlePaddle 生态
+paddlepaddle>=2.4.2,<2.6.0
+paddlespeech>=1.4.1,<1.5.0
+
+# 模板和网络
+jinja2>=3.0.0,<4.0.0
+requests>=2.26.0,<3.0.0
+
+# 安全和认证
+python-jose[cryptography]>=3.3.0,<3.4.0
+passlib[bcrypt]>=1.7.4,<1.8.
