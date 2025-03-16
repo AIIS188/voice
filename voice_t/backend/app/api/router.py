@@ -1,8 +1,11 @@
 from fastapi import APIRouter
 from app.api.endpoints import voice, course, replace
 
-# Import new PaddleSpeech-based endpoints
+# Import PaddleSpeech-based endpoints
 from app.api.endpoints import tts_paddle, asr_paddle
+
+# Import CosyVoice endpoint
+from app.api.endpoints import cosyvoice_tts
 
 api_router = APIRouter()
 
@@ -17,3 +20,6 @@ api_router.include_router(course.router, prefix="/course", tags=["课件处理"]
 
 # 使用PaddleSpeech ASR服务
 api_router.include_router(asr_paddle.router, prefix="/replace", tags=["声音置换与字幕"])
+
+# 使用CosyVoice TTS服务
+api_router.include_router(cosyvoice_tts.router, prefix="/cosyvoice", tags=["CosyVoice语音合成"])

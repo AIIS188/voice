@@ -3,6 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.api.router import api_router
 from app.services.integration import register_startup, get_app_metrics
+from app.services.paddlespeech_tts import init_tts_service
+from app.services.paddlespeech_asr import init_asr_service
+from app.services.cosyvoice_tts import init_cosyvoice_tts_service
 from app.models.metrics import AppMetrics
 from prometheus_client import Counter, Histogram, start_http_server
 
@@ -25,6 +28,7 @@ def create_app() -> FastAPI:
     * **标准语言输出**: 生成标准语言发音，如普通话、英语等
     * **课件语音化**: 解析PPT课件并生成语音讲解，制作有声课件
     * **声音置换**: 替换音视频中的声音，自动生成字幕
+    * **CosyVoice语音合成**: 使用通义千问实验室CosyVoice进行高质量语音合成
     """
 
     app = FastAPI(
@@ -80,3 +84,15 @@ def create_app() -> FastAPI:
 def start_metrics_server(port=8000):
     start_http_server(port)
     print(f"Metrics server started on port {port}")
+
+# 注册应用启动函数
+async def startup_event():
+    """应用启动初始化函数"""
+    # 初始化PaddleSpeech TTS服务
+    await init_tts_service()
+    
+    # 初始化PaddleSpeech ASR服务
+    await init_asr_service()
+    
+    # 初始化CosyVoice TTS服务
+    await init_cosyvoice_tts_service()

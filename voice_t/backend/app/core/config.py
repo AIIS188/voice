@@ -38,6 +38,11 @@ class Settings(BaseSettings):
         "language": "zh-CN"
     }
     
+    # CosyVoice配置
+    COSYVOICE_MODEL_DIR: str = Field(default="pretrained_models/CosyVoice-300M-SFT")
+    COSYVOICE_ENABLED: bool = Field(default=True)
+    THIRD_PARTY_DIR: str = ""
+    
     # 算法配置
     ALGORITHM: str = "HS256"
     
@@ -50,8 +55,10 @@ class Settings(BaseSettings):
         self.TTS_MODELS_DIR = os.path.join(self.MODELS_DIR, "tts")
         self.TTS_VOICE_ENCODER_PATH = os.path.join(self.MODELS_DIR, "voice_encoder/encoder.pt")
         self.TTS_METRICS_MODEL_PATH = os.path.join(self.MODELS_DIR, "metrics/mosnet.pt")
+        self.THIRD_PARTY_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "third_party")
 
 settings = Settings()
 
 # 确保上传目录存在
 os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
+os.makedirs(settings.THIRD_PARTY_DIR, exist_ok=True)
